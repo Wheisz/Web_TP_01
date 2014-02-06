@@ -14,23 +14,39 @@ and open the template in the editor.
     <body>
         <h1 class="Titre">Formulaire</h1>
         
-        <?php
-        // Si l'erreur existe on l'affiche'
-        if (isset($TabErreur['Nom']) == TRUE)
-        {
-            echo '<p class="error">' , $TabErreur['Nom'] , '</p>';
-        }
-        ?>
+        
         
         <form method="post" action="index.php" enctype="multipart/form-data">
             <!-- Nom -->
-            <div>Nom : <input type="text" name="Nom" <?php if(isset($nom)) echo 'value="'.$nom.'"'; ?>/></div>
+            <div>
+                <!-- Affichage de l'erreur + restauration -->
+                <?php
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['Nom']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['Nom'] , '</p>';
+                    }
+                    ?>
+                Nom :
+                <input type="text" name="Nom" <?php echo Restore('Nom'); ?> />      
+            </div>
             <!-- Prénom -->
-            <div>Prénom  : <input type="text" name="Prenom" <?php if(isset($prenom)) echo 'value="'.$prenom.'"'; ?>/></div>
+            <div>
+                <!-- Affichage de l'erreur + restauration -->
+                <?php
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['Prenom']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['Prenom'] , '</p>';
+                    }
+                    ?>
+                Prenom :
+                <input type="text" name="Prenom" <?php echo Restore('Prenom'); ?> /> 
+            </div>
             <!-- Année de naissance -->
             <div>
                 Année de naissance :
-                <select name="anne_naissance" ng-selected="if ($_POST['anne_naissance'] != ' ') this.value=this.oldvalue">
+                <select name="anne_naissance" >
                     <option value=""> </option>';
                     <option value="1990"> 1990 </option>';
                     <option value="1991"> 1991 </option>';
@@ -41,7 +57,15 @@ and open the template in the editor.
             </div>
             <!-- Mot de passe -->
             <div>
-                Mot de passe : <input type="password" name="mdp" <?php if(isset($motDePasse)) echo 'value="'.$motDePasse.'"'; ?>/>
+                <!-- Affichage de l'erreur + restauration -->
+                <?php
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['mdp']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['mdp'] , '</p>';
+                    }
+                    ?>
+                Mot de passe : <input type="password" name="mdp" <?php echo Restore('mdp'); ?> />
             </div>
             <!-- Mot de passe bis -->
             <div>

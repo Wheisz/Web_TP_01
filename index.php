@@ -1,4 +1,5 @@
 <?php
+require 'fonctions.php';
 
     var_dump($_POST);
 
