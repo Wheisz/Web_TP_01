@@ -9,7 +9,7 @@ function Restore($pElement)
     // Test l'existence de a variable
     if (isset($_POST[$pElement]) == true)
     {
-        return 'value="' . $_POST[$pElement] . '"';
+        return 'value="' . hmtlentities($_POST[$pElement]) . '"';
     }
 }
 
