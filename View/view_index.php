@@ -18,7 +18,7 @@ and open the template in the editor.
         
         <form method="post" action="index.php" enctype="multipart/form-data">
             <!-- Nom -->
-            <div>
+            <div>                
                 <!-- Affichage de l'erreur + restauration -->
                 <?php
                     // Si l'erreur existe on l'affiche
@@ -27,11 +27,11 @@ and open the template in the editor.
                         echo '<p class="error">' , $TabErreur['Nom'] , '</p>';
                     }
                     ?>
-                Nom :
-                <input type="text" name="Nom" <?php echo Restore('Nom'); ?> />      
+                <label for="Nom">Nom :</label>
+                <?php GetInput( 'text' , 'Nom'); ?>      
             </div>
             <!-- Prénom -->
-            <div>
+            <div>                
                 <!-- Affichage de l'erreur + restauration -->
                 <?php
                     // Si l'erreur existe on l'affiche
@@ -40,60 +40,103 @@ and open the template in the editor.
                         echo '<p class="error">' , $TabErreur['Prenom'] , '</p>';
                     }
                     ?>
-                Prenom :
-                <input type="text" name="Prenom" <?php echo Restore('Prenom'); ?> /> 
+                <label for="Prenom">Prénom :</label>
+                <?php GetInput('text', 'Prenom'); ?> 
             </div>
             <!-- Année de naissance -->
             <div>
-                Année de naissance :
-                <select name="anne_naissance" >
-                    <option value=""> </option>';
-                    <option value="1990"> 1990 </option>';
-                    <option value="1991"> 1991 </option>';
-                    <option value="1992"> 1992 </option>';
-                    <option value="1993"> 1993 </option>';
-                    <option value="1994"> 1994 </option>';
+                <?php                     
+                // Si l'erreur existe on l'affiche
+                if (isset($TabErreur['anne_naissance']) == TRUE)
+                {
+                    echo '<p class="error">' , $TabErreur['anne_naissance'] , '</p>';
+                } ?>
+                <label for="anne_naissance">Année de naissance :</label>                
+                <select name="anne_naissance" id="anne_naissance">
+                    <option></option>';
+                    <?php ListeDeroul(); ?>
                 </select>
             </div>
             <!-- Mot de passe -->
-            <div>
-                <!-- Affichage de l'erreur + restauration -->
-                <?php
+            <div>                
+                <!-- Affichage de l'erreur -->
+                <?php                     
                     // Si l'erreur existe on l'affiche
                     if (isset($TabErreur['mdp']) == TRUE)
                     {
                         echo '<p class="error">' , $TabErreur['mdp'] , '</p>';
-                    }
-                    ?>
-                Mot de passe : <input type="password" name="mdp" <?php echo Restore('mdp'); ?> />
+                    } ?>
+                <label for="mdp">Mot de passe :</label>
+                <input type="password" name="mdp" id="mdp"/>
             </div>
             <!-- Mot de passe bis -->
-            <div>
-                Confirmer mdp : <input type="password" name="mdpBis" <?php if(isset($motDePasseBis)) echo 'value="'.$motDePasseBis.'"'; ?>/>
+            <div>                 
+                <!-- Affichage de l'erreur -->
+                <?php                     
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['mdpBis']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['mdpBis'] , '</p>';
+                    } ?>
+                <label for="mdpBis">Confirmer mdp :</label>
+                <input type="password" name="mdpBis" id="mdpBis"/>
             </div>
             <!-- Bouton radio sexe -->
-            <div>
-               Sexe : 
-               Homme<input type="radio" name="Sexe" value="Homme" /> 
-               Femme<input type="radio" name="Sexe" value="Femme" />
+            <div>                
+                <!-- Affichage de l'erreur + restauration -->
+                <?php                     
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['Sexe']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['Sexe'] , '</p>';
+                    } ?>
+                Sexe :
+               <label for="Homme">Homme</label>
+               <input type="radio" name="Sexe" value="Homme" id="Homme" <?php if (isset($_POST['Sexe']) == TRUE && $_POST['Sexe'] === 'Homme') echo 'checked="checked"'; ?>/>
+               <label for="Femme">Femme</label>
+               <input type="radio" name="Sexe" value="Femme" id="Femme" <?php if (isset($_POST['Sexe']) == TRUE && $_POST['Sexe'] === 'Femme') echo 'checked="checked"'; ?>/>
             </div>
             <!-- Checkbox -->
-            <div>
+            <div>                
+                <!-- Affichage de l'erreur + restauration -->
+                <?php                     
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['perso']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['perso'] , '</p>';
+                    } ?>
                 Comment te définirais tu : <br/>
-                Balèze<input type="checkbox" name="perso[]" value="fort"/>
-                Beau gosse<input type="checkbox" name="perso[]" value="beau"/>
-                Nain<input type="checkbox" name="perso[]" value="petit"/>
-                Grande perche<input type="checkbox" name="perso[]" value="grand"/>
+                <label for="fort">Balèze</label> 
+                <input type="checkbox" name="perso[0]" value="fort" id="fort" <?php RestoreCheckBox(0) ?>/>
+                <label for="beau">Beau gosse</label>
+                <input type="checkbox" name="perso[1]" value="beau" id="beau" <?php RestoreCheckBox(1) ?>/>
+                <label for="petit">Nain</label>
+                <input type="checkbox" name="perso[2]" value="petit" id="petit" <?php RestoreCheckBox(2) ?>/>
+                <label for="grand">Grande perche</label>
+                <input type="checkbox" name="perso[3]" value="grand" id="grand" <?php RestoreCheckBox(3) ?>/>
             </div>
             <!-- Zone de texte : description -->
             <div>
-                Description : <br/>
-                <textarea name="Description" cols="51" rows="10" /><?php if(isset($description)) echo $description; ?></textarea>
+                <?php                     
+                    // Si l'erreur existe on l'affiche
+                    if (isset($TabErreur['Description']) == TRUE)
+                    {
+                        echo '<p class="error">' , $TabErreur['Description'] , '</p>';
+                    } ?>
+                <label for="Description">Description :</label>
+                 <br/>
+                 <textarea name="Description" id="Description" cols="51" rows="10" /><?php if(isset($description)) echo $description; ?></textarea>
             </div>
             <!-- Bouton : Choix de fichier -->
             <div class="bouton">
-                Image de profil :  
-                <input type="file" name="file"/>
+                <?php                     
+                // Si l'erreur existe on l'affiche
+                if (isset($TabErreur['file']) == TRUE)
+                {
+                    echo '<p class="error">' , $TabErreur['file'] , '</p>';
+                } ?>
+                <label for="file">Image de profil :</label>                 
+                <input type="file" name="file" id="file" />
             </div>
             <!-- Bouton : Reset et valider -->
             <div class="bouton"/>

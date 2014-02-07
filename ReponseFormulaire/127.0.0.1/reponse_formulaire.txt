@@ -1,0 +1,11 @@
+Le 07-02-2014 à 15:40
+Nom : supiot
+Prenom : theodore
+anne_naissance : 1991
+mdp : salubob
+mdpBis : salubob
+Sexe : Homme
+perso(0) : fort
+perso(1) : beau
+Description : coco
+valider : Envoyer

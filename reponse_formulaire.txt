@@ -1,0 +1,44 @@
+Le 07-02-2014 à 15 : 09Nom : supiot<br />Prenom : theodore<br />anne_naissance : 1993<br />mdp : salubob<br />mdpBis : salubob<br />Sexe : 1<br />perso : Array<br />Description : salut<br />valider : Envoyer<br />Le 07-02-2014 à 15 : 11Nom : supiot<br />Prenom : theodore<br />anne_naissance : 1993<br />mdp : salubob<br />mdpBis : salubob<br />Sexe : 1<br />perso : Array<br />Description : salut<br />valider : Envoyer<br />Le 07-02-2014 à 15 : 12Nom : supiot<br />Prenom : theodore<br />anne_naissance : 1993<br />mdp : salubob<br />mdpBis : salubob<br />Sexe : 1<br />perso : Array<br />Description : salut<br />valider : Envoyer<br />Le 07-02-2014 à 15:40
+Nom : supiot
+Prenom : theodore
+anne_naissance : 1991
+mdp : salubob
+mdpBis : salubob
+Sexe : Homme
+perso(0) : fort
+perso(1) : beau
+Description : coco
+valider : Envoyer
+Le 07-02-2014 à 15:47
+Nom : supiot
+Prenom : theodore
+anne_naissance : 1991
+mdp : salubob
+mdpBis : salubob
+Sexe : Homme
+perso(0) : fort
+perso(1) : beau
+Description : coco
+valider : Envoyer
+Le 07-02-2014 à 15:47
+Nom : supiot
+Prenom : theodore
+anne_naissance : 1991
+mdp : salubob
+mdpBis : salubob
+Sexe : Homme
+perso(0) : fort
+perso(1) : beau
+Description : coco
+valider : Envoyer
+Le 07-02-2014 à 15:48
+Nom : supiot
+Prenom : theodore
+anne_naissance : 1991
+mdp : salubob
+mdpBis : salubob
+Sexe : Homme
+perso(0) : fort
+perso(1) : beau
+Description : coco
+valider : Envoyer
