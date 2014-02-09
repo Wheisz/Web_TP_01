@@ -12,6 +12,12 @@ function Restore($pElement)
         echo 'value="' . htmlentities($_POST[$pElement]) . '"';
     }
 }
+
+/**
+ * Insert un input en fonction de son type et de son nom
+ * @param type $ElementType = type d'input
+ * @param type $pElement = nom de l'input
+ */
 function GetInput($ElementType, $pElement)
 {
     echo '<input id="' . $pElement . '" type="' . $ElementType . '" name="' . $pElement . '"';
